@@ -9,7 +9,7 @@
   </div>
   <div v-else-if="theme2" class="backdrop" @click.self="closeModal2">
     <div
-      class="modal2"
+      class="modal"
       :class="{ success: theme2 === 'success', danger: theme2 === 'delete' }"
     >
       <slot>default</slot>
@@ -46,13 +46,7 @@ export default {
   background-color: white;
   border-radius: 10px;
 }
-.modal2 {
-  width: 400px;
-  padding: 20px;
-  margin: 100px auto;
-  background-color: white;
-  border-radius: 10px;
-}
+
 p {
   font-style: normal;
 }
