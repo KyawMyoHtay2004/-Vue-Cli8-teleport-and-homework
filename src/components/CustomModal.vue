@@ -1,8 +1,16 @@
 <template>
-  <div class="backdrop" @click.self="closeModal">
+  <div v-if="theme" class="backdrop" @click.self="closeModal">
     <div
       class="modal"
       :class="{ success: theme === 'success', danger: theme === 'delete' }"
+    >
+      <slot>default</slot>
+    </div>
+  </div>
+  <div v-else-if="theme2" class="backdrop" @click.self="closeModal2">
+    <div
+      class="modal2"
+      :class="{ success: theme2 === 'success', danger: theme2 === 'delete' }"
     >
       <slot>default</slot>
     </div>
@@ -11,10 +19,13 @@
 
 <script>
 export default {
-  props: ["header", "content", "theme"], //success
+  props: ["theme", "theme2"],
   methods: {
     closeModal() {
       this.$emit("close");
+    },
+    closeModal2() {
+      this.$emit("close2");
     },
   },
 };
@@ -29,6 +40,13 @@ export default {
   height: 100%;
 }
 .modal {
+  width: 400px;
+  padding: 20px;
+  margin: 100px auto;
+  background-color: white;
+  border-radius: 10px;
+}
+.modal2 {
   width: 400px;
   padding: 20px;
   margin: 100px auto;
