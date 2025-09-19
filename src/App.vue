@@ -1,8 +1,16 @@
 <template>
   <h1 ref="greet">Hi {{ title }}i</h1>
   <input type="text" ref="name" />
-  <button @click="clickHandler">Click</button>
-  <Modal :header="header" :content="content" :theme="theme" />
+  <div v-if="showModal">
+    <Modal
+      :header="header"
+      :content="content"
+      :theme="theme"
+      @close="showModal = false"
+    />
+  </div>
+  <!-- <button @click="clickHandler">Click</button> -->
+  <button @click="showModal = true">Open modal</button>
 </template>
 
 <script>
@@ -14,6 +22,7 @@ export default {
       header: "Login success",
       content: "Welcome user kyaw myo htay",
       theme: "success",
+      showModal: false,
     };
   },
   components: {
