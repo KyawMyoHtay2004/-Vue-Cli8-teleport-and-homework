@@ -4,8 +4,7 @@
       class="modal"
       :class="{ success: theme === 'success', danger: theme === 'delete' }"
     >
-      <h1>{{ header }}</h1>
-      <p>{{ content }}</p>
+      <slot>default</slot>
     </div>
   </div>
 </template>

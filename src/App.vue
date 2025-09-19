@@ -1,13 +1,10 @@
 <template>
   <h1 ref="greet">Hi {{ title }}i</h1>
-  <input type="text" ref="name" />
   <div v-if="showModal">
-    <Modal
-      :header="header"
-      :content="content"
-      :theme="theme"
-      @close="showModal = false"
-    />
+    <Modal :theme="theme" @close="showModal = false">
+      <h1>Login success</h1>
+      <p>welcome user kyaw myo htay</p>
+    </Modal>
   </div>
   <!-- <button @click="clickHandler">Click</button> -->
   <button @click="showModal = true">Open modal</button>
