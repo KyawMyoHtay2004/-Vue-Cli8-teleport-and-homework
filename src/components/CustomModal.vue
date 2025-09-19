@@ -1,13 +1,24 @@
 <template>
-  <div class="backdrop">
-    <div class="modal">
-      <p>Modal content</p>
+  <div class="backdrop" @click.self="closeModal">
+    <div
+      class="modal"
+      :class="{ success: theme === 'success', danger: theme === 'delete' }"
+    >
+      <h1>{{ header }}</h1>
+      <p>{{ content }}</p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["header", "content", "theme"], //success
+  methods: {
+    closeModal() {
+      this.$emit("close");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -27,5 +38,13 @@ export default {};
 }
 p {
   font-style: normal;
+}
+.success {
+  background-color: green;
+  color: white;
+}
+.danger {
+  background-color: crimson;
+  color: white;
 }
 </style>
