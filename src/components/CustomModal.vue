@@ -10,7 +10,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .backdrop {
   position: fixed;
   top: 0;
@@ -24,5 +24,8 @@ export default {};
   margin: 100px auto;
   background-color: white;
   border-radius: 10px;
+}
+p {
+  font-style: normal;
 }
 </style>
